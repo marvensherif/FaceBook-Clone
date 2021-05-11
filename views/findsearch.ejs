@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Magic Wand</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&family=Lobster&family=Modak&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/css/findsearch.css">
+
+  </head>
+  <div id="scrollPath"></div>
+  <div id="progressbar"></div>
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
+
+         <span class="navbar-brand mb-0 h1 ggg font">Magic-Wand</span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+
+
+
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/home/<%=id%>">HOME</a>
+            </li>
+
+
+            <li class="nav-item">
+              <div class="dropdown show">
+                <a class="btn nav-link navbar-brand"href="#" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+          <svg class="bi bi-bell" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 16a2 2 0 002-2H6a2 2 0 002 2z"/>
+  <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 004 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 00-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 111.99 0A5.002 5.002 0 0113 6c0 .88.32 4.2 1.22 6z" clip-rule="evenodd"/>
+</svg>
+ <span class="w3-badge w3-right w3-small w3-green"><%=pending.length%></span>
+</a>
+<div class="dropdown-menu x d " aria-labelledby="dropdownMenuLink">
+
+  <%pending.forEach(function(user){%>
+
+      <a class="dropdown-item z" style="font-size:13px; font-weight: bold;color:black;" href="/search/<%=id%>/<%=user._id%>"><%=user.fname%></a>
+      <p class="dropdown-item">send you friend request</p>
+  <%});%>
+
+
+</div>
+              </div>
+
+            </li>
+
+            <li class="nav-item ">
+              <div class="dropdown show e">
+                <a class="btn nav-link navbar-brand dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+
+                </a>
+
+                <div class="dropdown-menu x" aria-labelledby="dropdownMenuLink">
+
+
+                <a class="dropdown-item z"style="font-size:13px; font-weight: bold; color:black;" href="/logout">LOGOUT</a>
+                </div>
+              </div>
+
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0  "  action="/search/<%=id%>" method="post" id="LocateOnMap">
+               <input type="text" class="form-control" name="search" placeholder="Search" autocomplete="off" spellcheck="false">
+                <button class="btn btn-default" type="submit">
+                  <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 15 15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
+          </svg>
+                </button>
+                </form>
+      </nav>
+
+
+
+
+
+<% let x=1; %>
+<div class="row container-fluid">
+  <%if(founded.length >0){%>
+  <%founded.forEach(function(name){%>
+  <%if(name.registerInfo.id!= id){%>
+
+  <div class="col-md-4">
+    <div class="card mb-4 shadow-sm  container">
+      <img style="height:300px;"class=""src="<%=name.registerInfo.imgURL%>" class="card-img-top" alt="...">
+
+
+      <div style="background:#333;"  class="card-body">
+          <h3 class="card-text text-center"><a class="btn normal sizebtn"  href="/search/<%=id%>/<%=name.registerInfo._id%>"><%=name.registerInfo.fname%> <%=name.registerInfo.lname%></a></h3>
+
+      </div>
+    </div>
+  </div>
+  <%x=1%>
+  <%}});%>
+</div>
+
+<%}else{%>
+  <div class="container" style="text-align:center;">
+
+    <h3 style="color:#fff">No User Found</h3>
+  </div>
+<%}%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+let progress = document.getElementById("progressbar");
+let totalHeight = document.body.scrollHeight - window.innerHeight;
+
+window.onscroll = function(){
+  let progressHeight = (window.pageYOffset/totalHeight) *100;
+  progress.style.height = progressHeight + "%";
+}
+
+
+</script>

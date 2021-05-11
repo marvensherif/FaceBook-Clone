@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" <title></title>
+  <title>Magic Wand</title>
+  <link rel="icon" href="/images/favicon.ico">
+ <link href="/css/photo.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+
+<form class="head" action="/upload/<%=id%>" method="post" enctype="multipart/form-data">
+
+
+            <div class="card mb-12 shadow-sm " style="border:0;">
+              <div class="card-body" style="align-items:center;">
+              <h1>Profile Picture</h1>
+              <img id="blah" src="<%=pic%>" alt="your image"  />
+
+
+
+
+          <div class="myfileupload-buttonbar ">
+                      <label class="myui-button btn btn-block btn-primary">
+                          <span >BROWSE</span>
+                          <input name="image" class="fileInput" style="background:#333; color:white; padding-left:20px; border:0; " id="file" type='file' onchange="readURL(this);"></input>
+                      </label>
+                  </div>
+  </div>
+  <div class="card-body">
+            <h1>Add Bio</h1>
+              <textarea name="bio" rows="8" cols="80" style="width:100%;" placeholder="You can enter your bio here or after registeration"></textarea>
+                <div class="d-flex justify-content-between align-items-center">
+            <input type="submit" class="btn btn-primary btn-block" value="Submit">
+                </div>
+              </div>
+            </div>
+
+</form>
+</body>
+</html>
+
+<script type="text/javascript">
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        $('#blah')
+          .attr('src', e.target.result)
+          .width(360)
+          .height(255);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

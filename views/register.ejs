@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/floating-labels/">
+    <title>Magic Wand</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+
+<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/emoji.css" rel="stylesheet">
+<link rel="icon" href="/images/favicon.ico">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="/css/login.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <form class="form-signin" action="/register" method="post">
+
+  <div class="form-label-group">
+    <input type="text" name="fname" class="form-control" placeholder="text" required autofocus autocomplete="off">
+    <label for="fname">First Name</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="text" name="lname" class="form-control" placeholder="text" required autofocus autocomplete="off">
+    <label for="lname" >Last Name</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="email" name="email"class="form-control" placeholder="Email address" required autofocus autocomplete="off">
+    <label for="email">Email address</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="password" name="pass" class="form-control " id="inputPassword" placeholder="Password" required autofocus autocomplete="off">
+    <label for="pwd" >Password</label>
+  </div>
+
+    <div class="form-label-group">
+      <input type="tel"  name="phone" class="form-control"  placeholder="Phone" required autofocus autocomplete="off">
+      <label for="phone">Phone-Number </label>
+
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="hometown"class="form-control"placeholder="Hometown" required autofocus autocomplete="off">
+      <label for="hometown">Hometown</label>
+
+    </div>
+
+    <div class="form-label-group">
+      <input type="date" name="date"class="form-control" required autofocus >
+<label for="">Date</label>
+    </div>
+
+    <div class="form-label-group">
+
+      <select  name="gender"class=" form-control " required autofocus  >
+          <option disabled selected value="">Gender</option>
+          <option >Male</option>
+          <option >Female</option>
+          <option >Other</option>
+
+     </select>
+
+    </div>
+
+
+
+    <div class="form-label-group">
+     <select name="status"class="form-control" required autofocus>
+       <option disabled selected value="">Martial Status</option>
+       <option>Single</option>
+       <option>Engaged</option>
+       <option>Married</option>
+     </select>
+    </div>
+
+
+  <button class="btn btn-lg btn-primary btn-block font-weight-bold"  type="submit">Register</button>
+
+</form>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+<script src="/js/config.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/jquery.emojiarea.js"></script>
+<script src="/js/emoji-picker.js"></script>
+
+
+
+
+
+
+
+<script>
+     $(function() {
+       // Initializes and creates emoji set from sprite sheet
+       window.emojiPicker = new EmojiPicker({
+         emojiable_selector: '[data-emojiable=true]',
+         assetsPath: '/images/',
+         popupButtonClasses: 'fa fa-smile-o'
+       });
+       // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+       // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+       // It can be called as many times as necessary; previously converted input fields will not be converted again
+       window.emojiPicker.discover();
+     });
+   </script>
+   <script>
+     // Google Analytics
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+     ga('create', 'UA-49610253-3', 'auto');
+     ga('send', 'pageview');
+   </script>
+
+
+   <div class="footerr"style="padding-top:40px;padding-bottom:20px;">
+   <p>&copy;Copyright 2020 Magic-Wand</p>
+   </div>
+
+</body>
+</html>
